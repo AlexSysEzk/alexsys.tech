@@ -7,8 +7,6 @@
 # ----------------------------------------------------------------
 /scripts         https://alexsysezk.github.io/scriptweb/index.html  302
 /scripts/*       https://alexsysezk.github.io/scriptweb/:splat      302
-/testsanidad     https://testsanidad.netlify.app/                    302
-/testsanidad/*   https://testsanidad.netlify.app/:splat              302
 
 # Atajo cómodo para compartir el CV
 /cv              /assets/cv/Alejandro_Ezkerra_CV.pdf                 200

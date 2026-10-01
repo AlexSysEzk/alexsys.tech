@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tests Celador/a</title>
+    <meta name="description" content="Test gratis y simulacros de examen para la OPE de Celador/a de Osakidetza. Practica el temario común y específico con preguntas reales.">
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/celador.css">
+    <link rel="icon" type="image/png" href="./img/favicon.png">
+    <link rel="apple-touch-icon" href="./img/favicon.png">
+    <meta property="og:title" content="Tests Sanidad | OPE Celador/a">
+        <meta property="og:description"
+            content="Simulacros y test gratuitos actualizados a la batería de preguntas oficial. Prepara tu plaza sin registro.">
+        <meta property="og:image"
+            content="https://alexsys.tech/testsanidad/img/favicon.png">
+        <meta property="og:url" content="https://alexsys.tech/testsanidad/">
+        <meta property="og:type" content="website">
+
+        <meta name="twitter:card" content="summary">
+        <meta name="twitter:title" content="Tests Sanidad | OPE Celador/a">
+        <meta name="twitter:description"
+            content="Simulacros y test gratuitos actualizados a la batería de preguntas oficial. Prepara tu plaza sin registro.">
+        <meta name="twitter:image"
+            content="https://alexsys.tech/testsanidad/img/favicon.png">
+</head>
+<body>
+
+    <nav class="top-nav">
+        <div class="nav-container">
+            <div class="logo">
+                <span class="logo-icon">✛</span> Tests <span>Sanidad</span>
+            </div>
+            <div class="menu-toggle" id="mobile-menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+            <ul class="nav-links" id="nav-list">
+                <li><a href="index.html">Inicio</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropbtn">Categorías ▾</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="celador.html">Celador/a</a></li>
+                    </ul>
+                </li>
+                <li><a href="faq.html">FAQ</a></li>
+                <li><a href="resultados.html">Resultados</a></li>
+                <li><button id="theme-toggle" class="theme-btn">Modo Oscuro</button></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="hero-section">
+        <div class="bg-overlay"></div>
+        <div class="ecg-container">
+            <svg viewBox="0 0 1000 100" preserveAspectRatio="none">
+                <path class="ecg-line" d="M0,50 L300,50 L320,20 L350,90 L380,10 L410,60 L430,50 L1000,50" />
+            </svg>
+        </div>
+
+        <div class="content-wrapper">
+            <div class="hero-text">
+                <h1>Área de Celador/a.</h1>
+                <p>Selecciona el bloque que deseas practicar. Todas las preguntas están basadas en preguntas oficiales y actualizadas al último temario.</p>
+            </div>
+
+            <div class="hero-cards">
+
+                <!-- ══ TARJETA TEMARIO COMÚN ══ -->
+                <div class="card" data-bloque="celador-comun" data-nombre="Temario Común">
+                    <div class="card-header">
+                        <h2>Temario Común</h2>
+                    </div>
+                    <p>Bloque de preguntas del temario común para la categoria de Celador.</p>
+                    <div class="card-footer">Empezar test común →</div>
+                </div>
+
+                <!-- ══ TARJETA TEMARIO ESPECÍFICO ══ -->
+                <div class="card" data-bloque="celador-especifico" data-nombre="Temario Específico">
+                    <div class="card-header">
+                        <h2>Temario Específico</h2>
+                    </div>
+                    <p>Preguntas exclusivas del temario específico de Celador/a.</p>
+                    <div class="card-footer">Empezar test específico →</div>
+                </div>
+
+                <!-- ══ TARJETA SIMULACROS MIXTOS ══ -->
+                <div class="card" data-bloque="celador-mixto" data-nombre="Simulacro Mixto">
+                    <div class="card-header">
+                        <h2>Simulacros Mixtos</h2>
+                    </div>
+                    <p>Examen completo con preguntas aleatorias al 50% del temario común y específico.</p>
+                    <div class="card-footer">Empezar simulacro →</div>
+                </div>
+
+                <!-- ══ TARJETA MIS ERRORES ══ -->
+                <div class="card card-errores" id="cardErrores">
+                    <div class="card-header">
+                        <h2>Mis Errores</h2>
+                    </div>
+                    <p>Repasa únicamente las preguntas que has fallado en exámenes anteriores.</p>
+                    <div class="card-footer">Repasar errores →</div>
+                </div>
+
+            </div>
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-container">
+            <div class="footer-col brand-col">
+                <div class="logo">
+                    <span class="logo-icon">✛</span> Tests <span>Sanidad</span>
+                </div>
+                <p class="disclaimer">Plataforma independiente de preparación de oposiciones. No tenemos vinculación oficial con Osakidetza ni con el Departamento de Salud del Gobierno Vasco.</p>
+            </div>
+            <div class="footer-col links-col">
+                <h3>Navegación</h3>
+                <ul>
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="resultados.html">Resultados</a></li>
+                    <li><a href="faq.html">Preguntas Frecuentes</a></li>
+                    <li><a href="contacto.html">Contacto y Soporte</a></li>
+                </ul>
+            </div>
+            <div class="footer-col links-col">
+                <h3>Legal</h3>
+                <ul>
+                    <li><a href="avisolegal.html">Aviso Legal</a></li>
+                    <li><a href="privacidad.html">Política de Privacidad</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Tests Sanidad. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- ══════════════════════════════════════════
+         MODAL — SELECTOR DE MODO (Práctica / Examen)
+         Se abre al clicar Común, Específico o Mixto
+         ══════════════════════════════════════════ -->
+    <div class="modal-overlay" id="modalOverlay">
+        <div class="modal-box">
+            <div class="modal-label" id="modalLabel">BLOQUE</div>
+            <div class="modal-title" id="modalTitle">Nombre del bloque</div>
+
+            <!-- ── SELECTOR TIPO (solo para Temario Común) ── -->
+            <div class="tipo-options" id="tipoOptions">
+                <button class="tipo-option" data-tipo="aleatorio">
+                    <div class="tipo-option-icon">🎲</div>
+                    <div class="tipo-option-info">
+                        <div class="tipo-option-name">Preguntas aleatorias</div>
+                        <div class="tipo-option-desc">Selecciona cuántas preguntas quieres practicar</div>
+                    </div>
+                </button>
+                <button class="tipo-option" data-tipo="bloque">
+                    <div class="tipo-option-icon">📚</div>
+                    <div class="tipo-option-info">
+                        <div class="tipo-option-name">Por bloque temático</div>
+                        <div class="tipo-option-desc">Estudia de 20 en 20 preguntas en orden</div>
+                    </div>
+                </button>
+            </div>
+
+            <!-- ── SELECTOR DE BLOQUE ── -->
+            <div class="bloque-selector" id="bloqueSelector">
+                <div class="bloque-selector-label">Selecciona un bloque:</div>
+                <div class="bloque-grid" id="bloqueGrid"></div>
+            </div>
+
+            <div class="modal-modes" id="modalModes">
+
+                <!-- Práctica -->
+                <button class="mode-option" data-modo="practica">
+                    <div class="mode-option-icon">✓</div>
+                    <div class="mode-option-info">
+                        <div class="mode-option-name">Modo Práctica</div>
+                        <div class="mode-option-desc">Corrección inmediata tras cada respuesta</div>
+                    </div>
+                </button>
+
+                <!-- Examen -->
+                <button class="mode-option" data-modo="examen">
+                    <div class="mode-option-icon">⏱</div>
+                    <div class="mode-option-info">
+                        <div class="mode-option-name">Modo Examen</div>
+                        <div class="mode-option-desc">Cronómetro, revisión y corrección al finalizar</div>
+                    </div>
+                </button>
+
+            </div>
+
+            <!-- Input número de preguntas -->
+            <div class="n-input-section" id="nInputSection">
+                <div class="n-input-label">¿Cuántas preguntas? <span id="nMaxLabel">(máx. 100)</span></div>
+                <div class="n-input-row">
+                    <input class="n-input" type="number" id="nInput" value="100" min="1" max="100">
+                    <div class="n-stepper">
+                        <button class="n-step-btn" data-step="1">▲</button>
+                        <button class="n-step-btn" data-step="-1">▼</button>
+                    </div>
+                    <span class="n-max-info" id="nMaxInfo">de 100</span>
+                </div>
+                <div class="n-error-msg" id="nErrorMsg">Introduce un número entre 1 y <span id="nErrorMax">100</span></div>
+            </div>
+
+            <div class="modal-footer">
+                <button class="btn-modal-cancel" id="btnCancelar">Cancelar</button>
+                <button class="btn-modal-start" id="btnStart">Empezar →</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ══════════════════════════════════════════
+         MODAL — MIS ERRORES
+         Se abre al clicar la tarjeta Mis Errores
+         ══════════════════════════════════════════ -->
+    <div class="modal-overlay" id="modalErrores">
+        <div class="modal-box">
+            <div class="modal-label">MIS ERRORES</div>
+            <div class="modal-title">¿Cómo quieres cargar tus errores?</div>
+
+            <div class="error-options">
+
+                <!-- Opción: este dispositivo -->
+                <button class="error-option" id="btnErroresLocal">
+                    <div class="error-option-title">
+                        📱 Usar este dispositivo
+                    </div>
+                    <div class="error-option-desc">
+                        Carga las preguntas que has fallado guardadas automáticamente en este navegador.
+                    </div>
+                </button>
+
+                <!-- Opción: cargar archivo -->
+                <label class="error-option error-option-file">
+                    <div class="error-option-title">
+                        📂 Cargar desde archivo
+                    </div>
+                    <div class="error-option-desc">
+                        Sube tu archivo de errores si vienes de otro dispositivo o quieres restaurar un historial guardado.
+                    </div>
+                    <input type="file" id="errorFileInput" accept=".json">
+                </label>
+
+            </div>
+
+            <div class="modal-footer">
+                <button class="btn-modal-cancel" id="btnCancelarErrores">Cancelar</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="./js/main.js"></script>
+    <!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "338e30392f274fa3b6d7e2523250e90b"}'></script><!-- End Cloudflare Web Analytics -->
+    <script src="./js/celador.js"></script>
+
+</body>
+</html>

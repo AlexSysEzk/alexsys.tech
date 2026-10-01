@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacto — Tests Sanidad</title>
+    <meta name="robots" content="noindex">
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/contacto.css">
+    <link rel="icon" type="image/png" href="./img/favicon.png">
+    <link rel="apple-touch-icon" href="./img/favicon.png">
+    <script src="./vendor/email.min.js"></script>
+</head>
+<body>
+
+    <nav class="top-nav">
+        <div class="nav-container">
+            <div class="logo">
+                <span class="logo-icon">✛</span> Tests <span>Sanidad</span>
+            </div>
+            <div class="menu-toggle" id="mobile-menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+            <ul class="nav-links" id="nav-list">
+                <li><a href="index.html">Inicio</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropbtn">Categorías ▾</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="celador.html">Celador/a</a></li>
+                    </ul>
+                </li>
+                <li><a href="faq.html">FAQ</a></li>
+                <li><a href="resultados.html">Resultados</a></li>
+                <li><button id="theme-toggle" class="theme-btn">Modo Oscuro</button></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="contacto-page">
+        <div class="contacto-container">
+
+            <div class="contacto-header">
+                <h1>Contacto</h1>
+                <p>¿Tienes alguna duda, has encontrado un error en una pregunta o quieres sugerir algo? Escríbenos y te respondemos lo antes posible.</p>
+            </div>
+
+            <div class="contacto-form">
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="nombre">Nombre <span class="opcional">(opcional)</span></label>
+                        <input type="text" id="nombre" placeholder="Tu nombre">
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email <span class="req">*</span></label>
+                        <input type="email" id="email" placeholder="tu@email.com">
+                        <span class="form-error" id="emailError">Introduce un email válido</span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="asunto">Asunto <span class="req">*</span></label>
+                    <select id="asunto">
+                        <option value="" disabled selected>Selecciona un asunto</option>
+                        <option value="Error en una pregunta">Error en una pregunta</option>
+                        <option value="Problema técnico">Problema técnico</option>
+                        <option value="Sugerencia de mejora">Sugerencia de mejora</option>
+                        <option value="Pregunta sobre la plataforma">Pregunta sobre la plataforma</option>
+                        <option value="Otro">Otro</option>
+                    </select>
+                    <span class="form-error" id="asuntoError">Selecciona un asunto</span>
+                </div>
+
+                <div class="form-group">
+                    <label for="mensaje">Mensaje <span class="req">*</span></label>
+                    <textarea id="mensaje" placeholder="Describe tu consulta con el mayor detalle posible..."></textarea>
+                    <span class="form-error" id="mensajeError">El mensaje no puede estar vacío</span>
+                </div>
+
+                <!-- Honeypot anti-bots: oculto para usuarios, los bots lo rellenan -->
+                <div class="hp-field" aria-hidden="true">
+                    <label for="website">No rellenar</label>
+                    <input type="text" id="website" name="website" tabindex="-1" autocomplete="off">
+                </div>
+
+                <div class="adjuntos-note">
+                    ¿Quieres adjuntar una captura de pantalla? Súbela a <strong>Google Drive</strong>, <strong>Imgur</strong> o cualquier servicio similar y pega el enlace en el mensaje.
+                </div>
+
+                <button class="btn-enviar" id="btnEnviar">
+                    <div class="spinner-sm" id="spinner"></div>
+                    <span id="btnText">Enviar mensaje</span>
+                </button>
+
+                <div class="rate-limit-msg" id="rateLimitMsg"></div>
+                <div class="cooldown-bar-wrap" id="cooldownWrap">
+                    <div class="cooldown-bar" id="cooldownBar"></div>
+                </div>
+
+                <div class="form-feedback" id="formFeedback">
+                    <div class="feedback-icon" id="feedbackIcon"></div>
+                    <div class="feedback-title" id="feedbackTitle"></div>
+                    <div id="feedbackDesc"></div>
+                </div>
+
+            </div>
+
+            <div class="contacto-info">
+                <div class="info-card">
+                    <div class="info-card-title">⏱ Tiempo de respuesta</div>
+                    <div class="info-card-desc">Intentamos responder en menos de 48 horas, aunque puede variar según el volumen de mensajes.</div>
+                </div>
+                <div class="info-card">
+                    <div class="info-card-title">🐛 Errores en preguntas</div>
+                    <div class="info-card-desc">Cita el texto de la pregunta o adjunta una captura en Google Drive o Imgur y pega el enlace en el mensaje.</div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <footer class="site-footer">
+        <div class="footer-container">
+            <div class="footer-col brand-col">
+                <div class="logo">
+                    <span class="logo-icon">✛</span> Tests <span>Sanidad</span>
+                </div>
+                <p class="disclaimer">Plataforma independiente de preparación de oposiciones. No tenemos vinculación oficial con Osakidetza ni con el Departamento de Salud del Gobierno Vasco.</p>
+            </div>
+            <div class="footer-col links-col">
+                <h3>Navegación</h3>
+                <ul>
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="resultados.html">Resultados</a></li>
+                    <li><a href="faq.html">Preguntas Frecuentes</a></li>
+                    <li><a href="contacto.html">Contacto y Soporte</a></li>
+                </ul>
+            </div>
+            <div class="footer-col links-col">
+                <h3>Legal</h3>
+                <ul>
+                    <li><a href="avisolegal.html">Aviso Legal</a></li>
+                    <li><a href="privacidad.html">Política de Privacidad</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Tests Sanidad. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="./js/main.js"></script>
+    <script src="./js/contacto.js"></script>
+    <!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "338e30392f274fa3b6d7e2523250e90b"}'></script><!-- End Cloudflare Web Analytics -->
+
+</body>
+</html>

@@ -1,0 +1,352 @@
+/* ── MODAL OVERLAY ── */
+.modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.55);
+    backdrop-filter: blur(4px);
+    z-index: 2000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2s ease;
+}
+.modal-overlay.open {
+    opacity: 1;
+    pointer-events: all;
+}
+
+/* ── MODAL BOX ── */
+.modal-box {
+    background: var(--card-bg);
+    backdrop-filter: blur(16px);
+    border: 1px solid var(--card-border);
+    border-radius: 20px;
+    padding: 2rem;
+    width: 100%;
+    max-width: 440px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.2);
+    transform: translateY(16px);
+    transition: transform 0.25s cubic-bezier(0.4,0,0.2,1);
+}
+.modal-overlay.open .modal-box {
+    transform: translateY(0);
+}
+
+.modal-label {
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--brand-blue);
+    margin-bottom: 0.4rem;
+}
+.modal-title {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 1.5rem;
+    letter-spacing: -0.5px;
+}
+
+/* ── OPCIONES DE MODO (modal normal) ── */
+.modal-modes {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    margin-bottom: 1.25rem;
+}
+.mode-option {
+    background: transparent;
+    border: 1.5px solid var(--card-border);
+    border-radius: 12px;
+    padding: 1rem 1.25rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    text-align: left;
+    width: 100%;
+    transition: all 0.18s ease;
+    color: var(--text-primary);
+}
+.mode-option:hover {
+    border-color: var(--brand-blue);
+    background: rgba(0, 92, 138, 0.05);
+}
+.mode-option.selected {
+    border-color: var(--brand-blue);
+    background: rgba(0, 92, 138, 0.08);
+}
+.mode-option-icon {
+    width: 36px;
+    height: 36px;
+    border-radius: 8px;
+    background: rgba(0, 92, 138, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1rem;
+    flex-shrink: 0;
+    transition: background 0.18s;
+}
+.mode-option:hover .mode-option-icon,
+.mode-option.selected .mode-option-icon {
+    background: var(--brand-blue);
+}
+.mode-option-info {}
+.mode-option-name {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 2px;
+}
+.mode-option-desc {
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+}
+
+/* ── INPUT NÚMERO PREGUNTAS ── */
+.n-input-section {
+    display: none;
+    flex-direction: column;
+    gap: 0.6rem;
+    background: rgba(0,0,0,0.03);
+    border: 1.5px solid var(--card-border);
+    border-radius: 12px;
+    padding: 1rem 1.25rem;
+    margin-bottom: 1rem;
+    animation: slideDown 0.2s ease;
+}
+[data-theme="dark"] .n-input-section {
+    background: rgba(255,255,255,0.04);
+}
+.n-input-section.show { display: flex; }
+
+@keyframes slideDown {
+    from { opacity: 0; transform: translateY(-6px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+.n-input-label {
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+    font-weight: 500;
+}
+.n-input-row {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+.n-input {
+    background: var(--bg-color);
+    border: 1.5px solid var(--card-border);
+    border-radius: 8px;
+    color: var(--text-primary);
+    font-family: 'Inter', sans-serif;
+    font-size: 1.3rem;
+    font-weight: 700;
+    padding: 0.5rem 0.75rem;
+    width: 90px;
+    text-align: center;
+    transition: border-color 0.2s;
+    -moz-appearance: textfield;
+}
+.n-input::-webkit-outer-spin-button,
+.n-input::-webkit-inner-spin-button { -webkit-appearance: none; }
+.n-input:focus { outline: none; border-color: var(--brand-blue); }
+.n-input.error { border-color: #dc2626; }
+.n-stepper { display: flex; flex-direction: column; gap: 3px; }
+.n-step-btn {
+    background: var(--bg-color);
+    border: 1px solid var(--card-border);
+    border-radius: 6px;
+    color: var(--text-secondary);
+    font-size: 0.8rem;
+    width: 28px; height: 24px;
+    cursor: pointer;
+    transition: all 0.15s;
+    display: flex; align-items: center; justify-content: center;
+}
+.n-step-btn:hover { border-color: var(--brand-blue); color: var(--brand-blue); }
+.n-max-info { font-size: 0.8rem; color: var(--text-secondary); }
+.n-error-msg {
+    font-size: 0.75rem;
+    color: #dc2626;
+    display: none;
+}
+.n-error-msg.show { display: block; }
+
+/* ── MODAL ERRORES ── */
+.error-options {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    margin-bottom: 1.25rem;
+}
+.error-option {
+    background: transparent;
+    border: 1.5px solid var(--card-border);
+    border-radius: 12px;
+    padding: 1.25rem;
+    cursor: pointer;
+    text-align: left;
+    width: 100%;
+    transition: all 0.18s;
+    color: var(--text-primary);
+}
+.error-option-file { cursor: pointer; }
+#errorFileInput { display: none; }
+.error-option:hover {
+    border-color: var(--brand-blue);
+    background: rgba(0,92,138,0.05);
+}
+.error-option-title {
+    font-size: 0.95rem;
+    font-weight: 700;
+    margin-bottom: 4px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+.error-option-desc {
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+    line-height: 1.5;
+}
+
+/* ── BOTONES MODAL ── */
+.modal-footer {
+    display: flex;
+    gap: 0.75rem;
+}
+.btn-modal-cancel {
+    background: transparent;
+    border: 1.5px solid var(--card-border);
+    border-radius: 12px;
+    color: var(--text-secondary);
+    font-family: 'Inter', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 600;
+    padding: 0.75rem 1.25rem;
+    cursor: pointer;
+    transition: all 0.18s;
+}
+.btn-modal-cancel:hover { border-color: #dc2626; color: #dc2626; }
+.btn-modal-start {
+    flex: 1;
+    background: var(--brand-blue);
+    border: none;
+    border-radius: 12px;
+    color: white;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 700;
+    padding: 0.75rem 1.25rem;
+    cursor: pointer;
+    transition: all 0.2s;
+    display: none;
+}
+.btn-modal-start.show { display: block; }
+.btn-modal-start:hover { opacity: 0.9; box-shadow: 0 4px 16px rgba(0,92,138,0.3); }
+.btn-modal-start:disabled { opacity: 0.4; cursor: not-allowed; }
+
+/* ── SELECTOR TIPO (aleatorio vs bloque) ── */
+#tipoOptions { display: none; } /* el JS lo muestra con style.display */
+.tipo-options {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    margin-bottom: 1.25rem;
+}
+.tipo-option {
+    background: transparent;
+    border: 1.5px solid var(--card-border);
+    border-radius: 12px;
+    padding: 1rem 1.25rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    text-align: left;
+    width: 100%;
+    transition: all 0.18s ease;
+    color: var(--text-primary);
+}
+.tipo-option:hover { border-color: var(--brand-blue); background: rgba(0,92,138,0.05); }
+.tipo-option.selected { border-color: var(--brand-blue); background: rgba(0,92,138,0.08); }
+.tipo-option-icon {
+    width: 36px; height: 36px;
+    border-radius: 8px;
+    background: rgba(0,92,138,0.1);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.1rem; flex-shrink: 0;
+    transition: background 0.18s;
+}
+.tipo-option:hover .tipo-option-icon,
+.tipo-option.selected .tipo-option-icon { background: var(--brand-blue); }
+.tipo-option-name { font-size: 0.95rem; font-weight: 700; color: var(--text-primary); margin-bottom: 2px; }
+.tipo-option-desc { font-size: 0.8rem; color: var(--text-secondary); }
+
+/* ── SELECTOR DE BLOQUE ── */
+.bloque-selector {
+    display: none;
+    flex-direction: column;
+    gap: 0.6rem;
+    background: rgba(0,0,0,0.03);
+    border: 1.5px solid var(--card-border);
+    border-radius: 12px;
+    padding: 1rem 1.25rem;
+    margin-bottom: 1rem;
+    animation: slideDown 0.2s ease;
+}
+[data-theme="dark"] .bloque-selector { background: rgba(255,255,255,0.04); }
+.bloque-selector.show { display: flex; }
+.bloque-selector-label {
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+    font-weight: 500;
+}
+.bloque-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 6px;
+    max-height: 180px;
+    overflow-y: auto;
+}
+.bloque-btn {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 600;
+    padding: 0.45rem 0.3rem;
+    border-radius: 8px;
+    border: 1.5px solid var(--card-border);
+    background: var(--bg-color);
+    color: var(--text-secondary);
+    cursor: pointer;
+    transition: all 0.15s;
+    text-align: center;
+    line-height: 1.3;
+}
+.bloque-btn:hover { border-color: var(--brand-blue); color: var(--brand-blue); }
+.bloque-btn.selected { border-color: var(--brand-blue); background: rgba(0,92,138,0.1); color: var(--brand-blue); }
+
+/* ── TARJETA MODO ERRORES (estilo distinto) ── */
+.card-errores {
+    border: 1.5px dashed var(--card-border);
+}
+.card-errores:hover {
+    border-color: var(--brand-blue);
+    border-style: solid;
+}
+.card-errores .card-footer {
+    color: var(--text-secondary);
+}
+.card-errores:hover .card-footer {
+    color: var(--brand-blue);
+}
+
+/* Cursor pointer en todas las tarjetas */
+.card { cursor: pointer; }

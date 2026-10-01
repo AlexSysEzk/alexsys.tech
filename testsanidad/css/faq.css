@@ -1,0 +1,52 @@
+.faq-page { background: var(--bg-color); min-height: 100vh; padding: 3rem 0 6rem; }
+.faq-container { width: 90%; max-width: 780px; margin: 0 auto; }
+
+.page-header { margin-bottom: 2.5rem; }
+.page-header h1 { font-size: 2rem; font-weight: 700; letter-spacing: -1px; color: var(--text-primary); margin-bottom: 0.3rem; }
+.page-header p  { font-size: 0.95rem; color: var(--text-secondary); }
+
+.faq-group { margin-bottom: 2.5rem; }
+.faq-group-title {
+    font-size: 0.72rem; font-weight: 700; letter-spacing: 2px;
+    text-transform: uppercase; color: var(--brand-blue);
+    margin-bottom: 0.85rem; padding-left: 0.25rem;
+}
+
+.faq-item {
+    background: var(--nav-bg); border: 1px solid var(--card-border);
+    border-radius: 14px; margin-bottom: 0.6rem; overflow: hidden;
+    transition: border-color 0.2s;
+}
+.faq-item.open { border-color: var(--brand-blue); }
+
+.faq-question {
+    width: 100%; background: transparent; border: none;
+    padding: 1.1rem 1.25rem; display: flex; align-items: center;
+    justify-content: space-between; gap: 1rem; cursor: pointer;
+    text-align: left; color: var(--text-primary); font-family: 'Inter', sans-serif;
+    font-size: 0.95rem; font-weight: 600; line-height: 1.4; transition: color 0.18s;
+}
+.faq-item.open .faq-question { color: var(--brand-blue); }
+
+.faq-icon { font-size: 1.1rem; color: var(--text-secondary); flex-shrink: 0; transition: transform 0.25s ease; }
+.faq-item.open .faq-icon { transform: rotate(45deg); color: var(--brand-blue); }
+
+.faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.3s ease; }
+.faq-item.open .faq-answer { max-height: 600px; }
+
+.faq-answer-inner {
+    padding: 0 1.25rem 1.25rem;
+    font-size: 0.9rem; color: var(--text-secondary); line-height: 1.75;
+}
+.faq-answer-inner strong { color: var(--text-primary); font-weight: 600; }
+.faq-answer-inner a { color: var(--brand-blue); text-decoration: none; }
+.faq-answer-inner a:hover { text-decoration: underline; }
+
+.pill {
+    display: inline-block; font-size: 0.75rem; font-weight: 700;
+    padding: 2px 9px; border-radius: 100px; margin: 0 2px;
+}
+.pill-green  { background: rgba(22,163,74,0.12); color: #16a34a; }
+.pill-blue   { background: rgba(0,92,138,0.1); color: var(--brand-blue); }
+
+@media (max-width: 768px) { .faq-page { padding: 2rem 0 4rem; } }

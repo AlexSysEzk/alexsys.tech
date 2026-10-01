@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="light">
+<head>
+<!--
+  PROYECTO: Tests Osakidetza
+  ARCHIVO: test.html — Motor de test reutilizable
+  PARÁMETROS URL:
+    categoria  = celador | enfermeria
+    bloque     = {categoria}-comun | {categoria}-especifico | {categoria}-mixto | errores
+    modo       = practica | examen
+    n          = número de preguntas (entero)
+    origen     = local | archivo  (solo bloque=errores)
+    desde      = índice inicio (solo modo bloque)
+    hasta      = índice fin (solo modo bloque)
+
+  LOCALSTORAGE:
+    osakidetza_resultados          → resultado si bloque=mixto y modo=examen
+    osakidetza_errores_{categoria} → preguntas falladas en modo=examen (todos los bloques)
+
+  SESSIONSTORAGE:
+    errores_archivo → preguntas cargadas desde JSON en celador/enfermeria.html
+-->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Test — Tests Sanidad</title>
+<meta name="robots" content="noindex">
+<link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/test.css">
+<link rel="icon" type="image/png" href="./img/favicon.png">
+<link rel="apple-touch-icon" href="./img/favicon.png">
+</head>
+<body>
+
+<!-- TOP BAR -->
+<div class="test-topbar">
+    <a href="index.html" class="test-logo">
+        <span class="logo-icon">✛</span> Tests <span>Sanidad</span>
+    </a>
+    <div class="topbar-chips">
+        <span class="chip" id="chipCat"></span>
+        <span class="chip" id="chipBloque"></span>
+        <span class="chip" id="chipModo"></span>
+    </div>
+    <div class="cronometro" id="cronometro">00:00:00</div>
+    <button class="btn-abandonar" id="btnAbandonar">Abandonar</button>
+</div>
+
+<div class="test-page">
+<div class="test-body">
+
+    <!-- SIDEBAR -->
+    <aside class="test-sidebar" id="sidebar">
+        <div class="sidebar-inner">
+            <div class="sidebar-label">Preguntas</div>
+            <div class="q-grid" id="qGrid"></div>
+        </div>
+    </aside>
+
+    <!-- MAIN -->
+    <main class="test-main">
+
+        <!-- Aviso mixto sin común -->
+        <div class="aviso-mixto" id="avisoBanner">
+            ⚠️ El temario común aún no está disponible. El simulacro usa solo preguntas del temario específico.
+        </div>
+
+        <!-- Pantalla carga -->
+        <div class="screen active" id="screenLoading">
+            <div class="loading-wrap">
+                <div class="spinner"></div>
+                Cargando preguntas...
+            </div>
+        </div>
+
+        <!-- Pantalla error -->
+        <div class="screen" id="screenError">
+            <div class="error-wrap">
+                <div class="error-icon">⚠️</div>
+                <div class="error-title" id="errTitle">Error</div>
+                <div class="error-desc"  id="errDesc"></div>
+                <button class="btn-res primary" id="btnErrBack">← Volver</button>
+            </div>
+        </div>
+
+        <!-- Pantalla test -->
+        <div class="screen" id="screenTest">
+            <div class="progress-wrap">
+                <div class="progress-fill" id="progressFill"></div>
+            </div>
+            <div class="question-card">
+                <div class="q-counter" id="qCounter"></div>
+                <div class="q-text"    id="qText"></div>
+                <ul  class="opts-list" id="optsList"></ul>
+                <div class="feedback"  id="feedback"></div>
+            </div>
+            <div class="test-nav">
+                <button class="btn-nav" id="btnPrev">← Anterior</button>
+                <button class="btn-nav primary" id="btnNext">Siguiente →</button>
+            </div>
+        </div>
+
+        <!-- Pantalla resultados -->
+        <div class="screen" id="screenResults">
+            <div class="results-card">
+
+                <div class="results-top">
+                    <div class="ring-wrap">
+                        <svg viewBox="0 0 100 100">
+                            <circle class="ring-bg" cx="50" cy="50" r="42"/>
+                            <circle class="ring-fill" id="ringFill" cx="50" cy="50" r="42"
+                                stroke-dasharray="263.9" stroke-dashoffset="263.9"/>
+                        </svg>
+                        <div class="ring-nota">
+                            <div class="ring-nota-num"   id="notaNum">—</div>
+                            <div class="ring-nota-label">/ 10</div>
+                        </div>
+                    </div>
+                    <div class="stats-row">
+                        <div class="stat-box"><div class="stat-n blue"  id="rTotal">—</div><div class="stat-l">Preguntas</div></div>
+                        <div class="stat-box"><div class="stat-n green" id="rCorr">—</div><div class="stat-l">Correctas</div></div>
+                        <div class="stat-box"><div class="stat-n red"   id="rIncorr">—</div><div class="stat-l">Incorrectas</div></div>
+                    </div>
+                </div>
+
+                <div class="results-actions">
+                    <button class="btn-res primary" id="btnVolver">← Volver</button>
+                    <button class="btn-res" id="btnRepetir">🔄 Repetir</button>
+                    <button class="btn-res green" id="btnDescErr">📥 Descargar errores</button>
+                    <button class="btn-res" id="btnVerRes">📊 Mis resultados</button>
+                </div>
+
+                <div class="review-header">Revisión de respuestas</div>
+                <div id="reviewList"></div>
+
+            </div>
+        </div>
+
+    </main>
+</div>
+</div>
+
+<script src="./js/test.js"></script>
+<!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "338e30392f274fa3b6d7e2523250e90b"}'></script><!-- End Cloudflare Web Analytics -->
+</body>
+</html>

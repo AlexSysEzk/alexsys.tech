@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mis Resultados — Tests Sanidad</title>
+    <meta name="robots" content="noindex">
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/resultados.css">
+    <link rel="icon" type="image/png" href="./img/favicon.png">
+    <link rel="apple-touch-icon" href="./img/favicon.png">
+    <script src="./vendor/chart.umd.min.js"></script>
+</head>
+<body>
+
+    <nav class="top-nav">
+        <div class="nav-container">
+            <div class="logo"><span class="logo-icon">✛</span> Tests <span>Sanidad</span></div>
+            <div class="menu-toggle" id="mobile-menu">
+                <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+            </div>
+            <ul class="nav-links" id="nav-list">
+                <li><a href="index.html">Inicio</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropbtn">Categorías ▾</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="celador.html">Celador/a</a></li>
+                    </ul>
+                </li>
+                <li><a href="faq.html">FAQ</a></li>
+                <li><a href="resultados.html">Resultados</a></li>
+                <li><button id="theme-toggle" class="theme-btn">Modo Oscuro</button></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="resultados-page">
+        <div class="resultados-container">
+
+            <div class="page-header">
+                <h1>Mis Resultados</h1>
+                <p>Historial de exámenes completados en modo Examen — Simulacro Mixto</p>
+            </div>
+
+            <div class="backup-bar">
+                <span class="backup-label">Copia de seguridad:</span>
+                <label class="btn-backup btn-file">
+                    📂 Cargar resultados
+                    <input type="file" id="fileInput" accept=".json">
+                </label>
+                <button class="btn-backup" id="btnExport">💾 Guardar resultados</button>
+                <div class="backup-feedback" id="backupFeedback"></div>
+                <button class="btn-help" id="btnHelp">❓ ¿Cómo funciona?</button>
+            </div>
+
+            <div class="empty-state" id="emptyState">
+                <div class="empty-icon">📊</div>
+                <div class="empty-title">Aún no tienes resultados</div>
+                <div class="empty-desc">
+                    Completa un <strong>Simulacro Mixto en modo Examen</strong> para ver tu historial aquí.<br>
+                    Los resultados se guardan automáticamente en este dispositivo.
+                </div>
+            </div>
+
+            <div id="mainContent">
+
+                <div class="filter-section">
+                    <span class="filter-label">FILTRAR:</span>
+                    <div id="filterBar"></div>
+                </div>
+
+                <div class="stats-grid">
+                    <div class="stat-card"><div class="stat-n" id="statTotal">0</div><div class="stat-l">Exámenes</div></div>
+                    <div class="stat-card"><div class="stat-n" id="statMedia">—</div><div class="stat-l">Nota media</div></div>
+                    <div class="stat-card"><div class="stat-n green" id="statMejor">—</div><div class="stat-l">Mejor nota</div></div>
+                    <div class="stat-card"><div class="stat-n red" id="statPeor">—</div><div class="stat-l">Peor nota</div></div>
+                </div>
+
+                <div class="charts-grid">
+                    <div class="chart-card">
+                        <div class="chart-card-title">Evolución de la nota</div>
+                        <div class="chart-wrap"><canvas id="chartEvolucion"></canvas></div>
+                    </div>
+                    <div class="chart-card">
+                        <div class="chart-card-title">Nota media por categoría</div>
+                        <div class="chart-wrap"><canvas id="chartCategorias"></canvas></div>
+                    </div>
+                </div>
+
+                <div class="table-section-header">
+                    <div class="table-section-title">Historial completo</div>
+                    <button class="btn-clear" id="btnClear">🗑 Borrar todo</button>
+                </div>
+
+                <div class="table-wrap">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th data-sort="fecha" id="th-fecha">Fecha</th>
+                                <th data-sort="categoria" id="th-categoria">Categoría</th>
+                                <th data-sort="total" id="th-total">Preguntas</th>
+                                <th data-sort="correctas" id="th-correctas">Correctas</th>
+                                <th data-sort="incorrectas" id="th-incorrectas">Incorrectas</th>
+                                <th data-sort="nota" id="th-nota">Nota</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tableBody"></tbody>
+                    </table>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- ── SECCIÓN ERRORES ── -->
+    <div class="resultados-page resultados-page-errores">
+        <div class="resultados-container">
+
+            <div class="errores-section-header">
+                <div class="errores-section-title">Mis Errores</div>
+                <label class="btn-backup btn-file">
+                    📂 Cargar errores
+                    <input type="file" id="errFileInput" accept=".json">
+                </label>
+                <div class="errores-section-desc">Historial de preguntas falladas en modo Examen. Puedes cargar un archivo para fusionarlo con los errores guardados en este dispositivo.</div>
+            </div>
+
+            <div class="backup-feedback" id="erroresFeedback"></div>
+            <div id="erroresSection"></div>
+
+        </div>
+    </div>
+
+    <footer class="site-footer">
+        <div class="footer-container">
+            <div class="footer-col brand-col">
+                <div class="logo"><span class="logo-icon">✛</span> Tests <span>Sanidad</span></div>
+                <p class="disclaimer">Plataforma independiente de preparación de oposiciones. No tenemos vinculación oficial con Osakidetza ni con el Departamento de Salud del Gobierno Vasco.</p>
+            </div>
+            <div class="footer-col links-col">
+                <h3>Navegación</h3>
+                <ul>
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="resultados.html">Resultados</a></li>
+                    <li><a href="faq.html">Preguntas Frecuentes</a></li>
+                    <li><a href="contacto.html">Contacto y Soporte</a></li>
+                </ul>
+            </div>
+            <div class="footer-col links-col">
+                <h3>Legal</h3>
+                <ul>
+                    <li><a href="avisolegal.html">Aviso Legal</a></li>
+                    <li><a href="privacidad.html">Política de Privacidad</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Tests Sanidad. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- Modal ayuda -->
+    <div class="modal-overlay" id="helpOverlay">
+        <div class="modal-box">
+            <div class="modal-header">
+                <div>
+                    <h2>¿Cómo funciona?</h2>
+                    <p>Guía rápida del sistema de resultados</p>
+                </div>
+                <button class="btn-close" id="btnCloseHelp">✕</button>
+            </div>
+            <div class="help-items">
+                <div class="help-item">
+                    <div class="help-item-icon">📊</div>
+                    <div>
+                        <div class="help-item-title">¿Qué se guarda aquí?</div>
+                        <div class="help-item-desc">Solo los <strong>Simulacros Mixtos en modo Examen</strong>. El resto de modos y bloques no generan historial en esta página.</div>
+                    </div>
+                </div>
+                <div class="help-item">
+                    <div class="help-item-icon">💾</div>
+                    <div>
+                        <div class="help-item-title">¿Dónde se guardan?</div>
+                        <div class="help-item-desc">En este navegador automáticamente. Si limpias el historial del navegador o cambias de dispositivo, usa el botón guardar para hacer una copia.</div>
+                    </div>
+                </div>
+                <div class="help-item">
+                    <div class="help-item-icon">📂</div>
+                    <div>
+                        <div class="help-item-title">Cargar resultados</div>
+                        <div class="help-item-desc">Si tienes un archivo <strong>mis_resultados_osakidetza.json</strong> de otro dispositivo, cárgalo aquí. Se fusionará sin duplicar nada.</div>
+                    </div>
+                </div>
+                <div class="help-item">
+                    <div class="help-item-icon">💾</div>
+                    <div>
+                        <div class="help-item-title">Guardar resultados</div>
+                        <div class="help-item-desc">Descarga tu historial completo. Guarda siempre el mismo archivo y sobreescríbelo para no acumular copias.</div>
+                    </div>
+                </div>
+                <div class="help-item">
+                    <div class="help-item-icon">🗑</div>
+                    <div>
+                        <div class="help-item-title">Borrar todo</div>
+                        <div class="help-item-desc">Elimina el historial permanentemente de este dispositivo. Haz una copia antes si no quieres perder los datos.</div>
+                    </div>
+                </div>
+            </div>
+            <button class="btn-modal-ok" id="btnOkHelp">Entendido</button>
+        </div>
+    </div>
+
+    <script src="./js/main.js"></script>
+    <script src="./js/resultados.js"></script>
+    <!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "338e30392f274fa3b6d7e2523250e90b"}'></script><!-- End Cloudflare Web Analytics -->
+</body>
+</html>

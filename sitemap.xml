@@ -4,4 +4,10 @@
   <url><loc>https://alexsys.tech/contacto/</loc><priority>0.6</priority></url>
   <url><loc>https://alexsys.tech/scripts/</loc><priority>0.7</priority></url>
   <url><loc>https://alexsys.tech/testsanidad/</loc><priority>0.5</priority></url>
+  <url><loc>https://alexsys.tech/testsanidad/celador</loc><priority>0.5</priority></url>
+  <url><loc>https://alexsys.tech/testsanidad/faq</loc><priority>0.3</priority></url>
+  <url><loc>https://alexsys.tech/testsanidad/resultados</loc><priority>0.3</priority></url>
+  <url><loc>https://alexsys.tech/testsanidad/contacto</loc><priority>0.3</priority></url>
+  <url><loc>https://alexsys.tech/testsanidad/avisolegal</loc><priority>0.2</priority></url>
+  <url><loc>https://alexsys.tech/testsanidad/privacidad</loc><priority>0.2</priority></url>
 </urlset>
