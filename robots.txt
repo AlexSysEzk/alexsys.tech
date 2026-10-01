@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /gracias/
+
+Sitemap: https://alexsys.tech/sitemap.xml

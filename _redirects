@@ -1,0 +1,19 @@
+# ----------------------------------------------------------------
+# Redirecciones de Netlify
+# Mientras los proyectos no estén copiados en su carpeta, estas
+# reglas mandan a su ubicación actual. En cuanto exista la carpeta
+# (por ejemplo /scripts/index.html), Netlify sirve el archivo real
+# y la regla deja de aplicarse sola. Entonces puedes borrarla.
+# ----------------------------------------------------------------
+/scripts         https://alexsysezk.github.io/scriptweb/index.html  302
+/scripts/*       https://alexsysezk.github.io/scriptweb/:splat      302
+/testsanidad     https://testsanidad.netlify.app/                    302
+/testsanidad/*   https://testsanidad.netlify.app/:splat              302
+
+# Atajo cómodo para compartir el CV
+/cv              /assets/cv/Alejandro_Ezkerra_CV.pdf                 200
+
+# Archivos de trabajo que no deben ser públicos
+/tools/*         /404.html   404!
+/CLAUDE.md       /404.html   404!
+/README.md       /404.html   404!

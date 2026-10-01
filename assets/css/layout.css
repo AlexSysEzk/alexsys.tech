@@ -1,0 +1,395 @@
+/* ==========================================================
+   layout.css — estructura de página
+   ========================================================== */
+
+.container {
+  width: min(100% - 40px, var(--max));
+  margin-inline: auto;
+}
+
+/* ---------- Fondo con manchas ---------- */
+.backdrop {
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 1100px;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: -1;
+}
+
+.blob {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(90px);
+  opacity: 0.32;
+}
+
+.blob--1 {
+  width: 520px;
+  height: 520px;
+  top: -160px;
+  right: -120px;
+  background: var(--a2);
+}
+
+.blob--2 {
+  width: 440px;
+  height: 440px;
+  top: 260px;
+  left: -180px;
+  background: var(--a1);
+}
+
+.blob--3 {
+  width: 300px;
+  height: 300px;
+  top: 520px;
+  right: 18%;
+  background: #60a5fa;
+  opacity: 0.18;
+}
+
+/* ---------- Navegación ---------- */
+.progress {
+  position: fixed;
+  inset: 0 0 auto 0;
+  height: 3px;
+  z-index: 60;
+  background: var(--grad);
+  transform-origin: 0 50%;
+  transform: scaleX(var(--progress, 0));
+}
+
+.nav {
+  position: fixed;
+  top: 14px;
+  left: 50%;
+  z-index: 50;
+  width: min(100% - 28px, var(--max));
+  transform: translateX(-50%);
+}
+
+.nav__bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  height: var(--nav-h);
+  padding: 0 10px 0 22px;
+  border: 1px solid var(--line);
+  border-radius: var(--r-pill);
+  background: var(--glass);
+  backdrop-filter: saturate(160%) blur(16px);
+  -webkit-backdrop-filter: saturate(160%) blur(16px);
+  box-shadow: var(--shadow);
+  transition: box-shadow 0.3s var(--ease);
+}
+
+.nav.is-scrolled .nav__bar {
+  box-shadow: var(--shadow-hover);
+}
+
+.logo {
+  font-family: var(--mono);
+  font-size: 0.98rem;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.nav__links {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.nav__link {
+  padding: 8px 14px;
+  border-radius: var(--r-pill);
+  font-size: 0.9rem;
+  color: var(--muted);
+  transition: color 0.2s, background-color 0.2s;
+}
+
+.nav__link:hover {
+  color: var(--ink);
+  background: rgba(99, 102, 241, 0.06);
+}
+
+.nav__link.is-active {
+  color: var(--a-ink);
+  background: var(--a-soft);
+}
+
+.nav__toggle {
+  display: none;
+  width: 44px;
+  height: 44px;
+  border: 0;
+  border-radius: 50%;
+  background: transparent;
+  cursor: pointer;
+}
+
+.nav__toggle .icon {
+  margin: auto;
+  width: 22px;
+  height: 22px;
+}
+
+/* ---------- Hero ---------- */
+.hero {
+  padding: calc(var(--nav-h) + 110px) 0 90px;
+  text-align: center;
+}
+
+.hero__role {
+  margin-top: 18px;
+  font-size: clamp(1.1rem, 2.2vw, 1.35rem);
+  font-weight: 500;
+  color: var(--ink-soft);
+}
+
+.hero__lead {
+  max-width: 600px;
+  margin: 14px auto 0;
+  font-size: 1.04rem;
+  color: var(--muted);
+}
+
+.hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 32px;
+}
+
+.hero__meta {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px 22px;
+  margin-top: 28px;
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+
+/* ---------- Secciones ---------- */
+.section {
+  padding: 72px 0;
+}
+
+.section__head {
+  max-width: 640px;
+  margin-bottom: 32px;
+}
+
+.section__path {
+  display: inline-block;
+  margin-bottom: 8px;
+  font-family: var(--mono);
+  font-size: 0.85rem;
+  color: var(--a1);
+}
+
+.section__intro {
+  margin-top: 10px;
+  color: var(--muted);
+}
+
+/* Bento "sobre mí" */
+.bento {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.bento__about {
+  grid-column: span 4;
+}
+
+.bento__place,
+.bento__study,
+.bento__cert,
+.bento__langs {
+  grid-column: span 2;
+}
+
+.bento__langs {
+  grid-column: span 2;
+}
+
+/* Experiencia */
+.exp {
+  max-width: 820px;
+}
+
+/* Proyectos */
+.projects {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+}
+
+/* Habilidades */
+.skills {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+}
+
+/* Formación */
+.edu {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
+  gap: 40px;
+  align-items: start;
+}
+
+.subhead {
+  margin-bottom: 18px;
+  font-size: 1.15rem;
+}
+
+.certs {
+  display: grid;
+  gap: 14px;
+}
+
+/* Contacto */
+.footer {
+  padding: 40px 0 48px;
+  font-size: 0.88rem;
+  color: var(--muted);
+}
+
+.footer__inner {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 12px;
+  padding-top: 28px;
+  border-top: 1px solid var(--line);
+}
+
+.footer a:hover {
+  color: var(--ink);
+}
+
+/* Páginas interiores (contacto, gracias, 404) */
+.page {
+  padding: calc(var(--nav-h) + 90px) 0 80px;
+}
+
+.page__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+  gap: 24px;
+  align-items: start;
+  margin-top: 36px;
+}
+
+.page--center {
+  min-height: 80vh;
+  display: grid;
+  place-items: center;
+  text-align: center;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 960px) {
+  .bento__about {
+    grid-column: span 6;
+  }
+
+  .bento__place,
+  .bento__study,
+  .bento__cert,
+  .bento__langs {
+    grid-column: span 3;
+  }
+
+  .skills {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .edu,
+  .page__grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+@media (max-width: 760px) {
+  .nav__toggle {
+    display: grid;
+  }
+
+  .nav__links {
+    position: absolute;
+    top: calc(100% + 10px);
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    align-items: stretch;
+    padding: 10px;
+    border: 1px solid var(--line);
+    border-radius: var(--r-lg);
+    background: rgba(255, 255, 255, 0.98);
+    box-shadow: var(--shadow-hover);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-8px);
+    transition: opacity 0.25s var(--ease), transform 0.25s var(--ease), visibility 0.25s;
+  }
+
+  .nav.is-open .nav__links {
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+  }
+
+  .nav__link {
+    padding: 12px 16px;
+    font-size: 1rem;
+  }
+
+  .nav__links .btn {
+    margin-top: 6px;
+    justify-content: center;
+  }
+
+  .projects,
+  .skills {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .bento__place,
+  .bento__study,
+  .bento__cert,
+  .bento__langs {
+    grid-column: span 6;
+  }
+
+  .hero {
+    padding-top: calc(var(--nav-h) + 80px);
+  }
+
+  .section {
+    padding: 56px 0;
+  }
+}
+
+.h1--page {
+  font-size: clamp(2.2rem, 5vw, 3.4rem);
+}
+
+.page--center .section__intro {
+  max-width: 480px;
+  margin-inline: auto;
+}
+
+.footer__links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 22px;
+}

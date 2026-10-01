@@ -1,0 +1,20 @@
+# Sistema operativo y editores
+Thumbs.db
+desktop.ini
+.DS_Store
+.vscode/
+.idea/
+
+# Python (tools/cv)
+__pycache__/
+*.pyc
+.venv/
+
+# Netlify CLI y configuración local de Claude
+.netlify/
+.claude/
+
+# Archivos de trabajo que la web no necesita: no se publican
+CLAUDE.md
+README.md
+tools/

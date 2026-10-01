@@ -1,0 +1,204 @@
+/* ==========================================================
+   base.css — fuentes, variables, reset y tipografía
+   ========================================================== */
+
+@font-face {
+  font-family: "Plus Jakarta Sans";
+  src: url("../fonts/plus-jakarta-sans.woff2") format("woff2");
+  font-weight: 200 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "JetBrains Mono";
+  src: url("../fonts/jetbrains-mono.woff2") format("woff2");
+  font-weight: 100 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  /* Color */
+  --bg: #fafafb;
+  --ink: #16161d;
+  --ink-soft: #3a3a46;
+  --muted: #5d5d6b;
+  --line: rgba(22, 22, 45, 0.08);
+  --line-strong: rgba(22, 22, 45, 0.14);
+  --glass: rgba(255, 255, 255, 0.72);
+  --glass-strong: rgba(255, 255, 255, 0.88);
+
+  --a1: #6366f1;          /* índigo */
+  --a2: #a855f7;          /* violeta */
+  --a-soft: #eef0ff;
+  --a-ink: #4338ca;
+  --grad: linear-gradient(100deg, var(--a1), var(--a2));
+
+  --ok: #16a34a;
+  --ok-soft: #ecfdf3;
+  --ok-ink: #166534;
+
+  /* Tipografía */
+  --font: "Plus Jakarta Sans", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --mono: "JetBrains Mono", ui-monospace, "Cascadia Code", Consolas, monospace;
+
+  /* Radios: cada nivel de jerarquía tiene el suyo */
+  --r-xl: 28px;   /* bloques grandes (contacto) */
+  --r-lg: 22px;   /* tarjetas */
+  --r-md: 14px;   /* elementos internos */
+  --r-pill: 999px;
+
+  /* Sombras */
+  --shadow: 0 1px 2px rgba(30, 27, 75, 0.04), 0 8px 24px rgba(30, 27, 75, 0.06);
+  --shadow-hover: 0 2px 4px rgba(30, 27, 75, 0.05), 0 18px 40px rgba(67, 56, 202, 0.12);
+
+  /* Layout */
+  --max: 1080px;
+  --nav-h: 64px;
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: calc(var(--nav-h) + 32px);
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font);
+  font-size: 1rem;
+  line-height: 1.65;
+  color: var(--ink);
+  background: var(--bg);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+img,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+h1,
+h2,
+h3,
+h4,
+p,
+ul,
+ol {
+  margin: 0;
+}
+
+ul,
+ol {
+  padding: 0;
+  list-style: none;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button,
+input,
+textarea {
+  font: inherit;
+  color: inherit;
+}
+
+::selection {
+  background: var(--a-soft);
+  color: var(--a-ink);
+}
+
+:focus-visible {
+  outline: 2px solid var(--a1);
+  outline-offset: 3px;
+  border-radius: 8px;
+}
+
+/* Escala tipográfica */
+h1 {
+  font-size: clamp(2.6rem, 6.5vw, 4.6rem);
+  font-weight: 700;
+  line-height: 1.04;
+  letter-spacing: -0.035em;
+}
+
+h2 {
+  font-size: clamp(1.7rem, 3.4vw, 2.3rem);
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.025em;
+}
+
+h3 {
+  font-size: 1.08rem;
+  font-weight: 700;
+  line-height: 1.3;
+  letter-spacing: -0.01em;
+}
+
+.mono {
+  font-family: var(--mono);
+}
+
+.muted {
+  color: var(--muted);
+}
+
+.grad-text {
+  background: var(--grad);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.skip-link {
+  position: absolute;
+  left: 16px;
+  top: -60px;
+  z-index: 100;
+  padding: 10px 16px;
+  border-radius: var(--r-pill);
+  background: var(--ink);
+  color: #fff;
+  font-size: 0.9rem;
+}
+
+.skip-link:focus {
+  top: 16px;
+}
+
+.icon {
+  width: 18px;
+  height: 18px;
+  flex: none;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
